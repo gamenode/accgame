@@ -56,10 +56,18 @@
 			</table>
             <p>Number of your shakes: <span id="shakes">0</span></p>
             <br>
+            
+            <br>
+            
+            <!--  Show Scores Button which load another page display database query content (Show scores arranged from highest ro lowest)  -->
+            <input style="visibility:visible" type="button" id="scores" value="Show Score"/>
 
 		</div>
             
-				<input style="visibility: hidden" type="button" id="results" value="showresult" onclick="showresults();"/>
+
+            
+            
+            <input style="visibility: hidden" type="button" id="results" value="showresult" onclick="showresults();"/>
 
 			<div  class="main" id = "tb" style="visibility: hidden">
 		
@@ -99,6 +107,10 @@
         }
         
         
+        //Open leader board scores page
+        document.getElementById("scores").onclick = function () {
+            window.open("leaderboard.html", "_blank");
+        };
         
         function updateFieldIfNotNull(fieldName, value, precision=10){
             if (value != null)
@@ -149,6 +161,8 @@
                 mainCalculations();
                 let randomNumber = generateRandom();
                 updateFieldIfNotNull('random', randomNumber, 0);
+                document.getElementById("scores").style.visibility = "hidden";
+
             }
             else if(!startFlag){
                 var random_shakes = document.getElementById("random").textContent;
@@ -209,6 +223,8 @@
                 
                 acl.stop();
                 window.location.reload();
+                
+                document.getElementById("scores").style.visibility = "visible";
 
             }
         }
