@@ -8,10 +8,10 @@
     
     <body onload = "MQTTconnect();">
         <div class="outer-main">
-            <table>
+            <table id="score_table">
                 <tr>
-                    <th>client_id</th>
-                    <th>client_points</th>
+                    <th>ID</th>
+                    <th>points</th>
                 </tr>
                 
                 <?php
@@ -20,12 +20,13 @@
                         die("Connection failed:". $conn-> connect_error);
                     }
 
-                    $sql = "SELECT client_id, client_points from clients";
+//                    $sql = "SELECT client_id, client_points from clients";
+                    $sql = "SELECT client_id, MAX(client_points) AS result FROM game.clients GROUP BY client_id ORDER BY result DESC";
                     $result = $conn-> query($sql);
 
                     if($result-> num_rows > 0) {
                         while($row = $result-> fetch_assoc()) {
-                            echo "<tr><td>". $row["client_id"] . "</td><td>" . $row["client_points"] . "</td></tr>";
+                            echo "<tr><td>". $row["client_id"] . "</td><td>" . $row["result"] . "</td></tr>";
                         }
 
                         echo "</table>";
