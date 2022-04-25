@@ -158,41 +158,6 @@
         function ToggleCalculations(){
             startFlag = !startFlag;
             if(startFlag){
-                                //SEND MQTT MESSAGE
-                    setInterval(function() {
-                      //Your code
-                      //Send data
-                      //var x=Math.floor(Math.random() * 10000);
-                      var ClientID = document.getElementById("txt_MQTT_Client_ID").value;
-                      if (isConnected && button_clicked) {
-                      var payload = {
-                          
-                          "client_id": ClientID.toString(),
-                          "client_points": points
-
-                      };
-                      var message = new Paho.MQTT.Message(JSON.stringify(payload));
-                      message.destinationName = "Game";
-                      try {
-
-
-                               //Set_New_Console_Msg("Published " + "\"" + document.getElementById("txt_MQTT_Msg").value + "\"" + "to MQTT Topic: " + "\"" +  document.getElementById("txt_MQTT_Publish_Topic").value + "\"");
-                                changeConnectionStatusImage("images/connected.svg");
-                                document.getElementById("connection").innerHTML = "connected";
-
-                                MQTT_Client.send(message);
-
-                                } catch (err) {
-
-                                    console.error(err);
-                                    isConnected = false;
-                                    //MQTTconnect();
-                                    changeConnectionStatusImage("images/disconnected.svg");
-                                    document.getElementById("connection").innerHTML = "disconnected";
-                                    //setTimeout(connectDevice(), 1000);
-                                }
-                           }
-                    }, 10);
                 
                 mainCalculations();
                 let randomNumber = generateRandom();
@@ -221,41 +186,41 @@
                 
                 alert("The correct shakes number = " + random_shakes + "\nYour shakes number = " + client_shakes + "\nSo your points = " + points);
 
-//                //SEND MQTT MESSAGE
-//                    setInterval(function() {
-//                      //Your code
-//                      //Send data
-//                      //var x=Math.floor(Math.random() * 10000);
-//                      var ClientID = document.getElementById("txt_MQTT_Client_ID").value;
-//                      if (isConnected && !button_clicked) {
-//                      var payload = {
-//                          
-//                          "client_id": ClientID.toString(),
-//                          "client_points": points
-//
-//                      };
-//                      var message = new Paho.MQTT.Message(JSON.stringify(payload));
-//                      message.destinationName = "Game";
-//                      try {
-//
-//
-//                               //Set_New_Console_Msg("Published " + "\"" + document.getElementById("txt_MQTT_Msg").value + "\"" + "to MQTT Topic: " + "\"" +  document.getElementById("txt_MQTT_Publish_Topic").value + "\"");
-//                                changeConnectionStatusImage("images/connected.svg");
-//                                document.getElementById("connection").innerHTML = "connected";
-//
-//                                MQTT_Client.send(message);
-//
-//                                } catch (err) {
-//
-//                                    console.error(err);
-//                                    isConnected = false;
-//                                    //MQTTconnect();
-//                                    changeConnectionStatusImage("images/disconnected.svg");
-//                                    document.getElementById("connection").innerHTML = "disconnected";
-//                                    //setTimeout(connectDevice(), 1000);
-//                                }
-//                           }
-//                    }, 10);
+                //SEND MQTT MESSAGE
+                    setTimeout(function() {
+                      //Your code
+                      //Send data
+                      //var x=Math.floor(Math.random() * 10000);
+                      var ClientID = document.getElementById("txt_MQTT_Client_ID").value;
+                      if (isConnected && !button_clicked) {
+                      var payload = {
+                          
+                          "client_id": ClientID.toString(),
+                          "client_points": points
+
+                      };
+                      var message = new Paho.MQTT.Message(JSON.stringify(payload));
+                      message.destinationName = "Game";
+                      try {
+
+
+                               //Set_New_Console_Msg("Published " + "\"" + document.getElementById("txt_MQTT_Msg").value + "\"" + "to MQTT Topic: " + "\"" +  document.getElementById("txt_MQTT_Publish_Topic").value + "\"");
+                                changeConnectionStatusImage("images/connected.svg");
+                                document.getElementById("connection").innerHTML = "connected";
+
+                                MQTT_Client.send(message);
+
+                                } catch (err) {
+
+                                    console.error(err);
+                                    isConnected = false;
+                                    //MQTTconnect();
+                                    changeConnectionStatusImage("images/disconnected.svg");
+                                    document.getElementById("connection").innerHTML = "disconnected";
+                                    //setTimeout(connectDevice(), 1000);
+                                }
+                           }
+                    }, 100);
                 
                 acl.stop();
 //                window.location.reload();
