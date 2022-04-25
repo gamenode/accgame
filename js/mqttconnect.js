@@ -1,5 +1,3 @@
-
-
     //  Variables
     var WebSocket_MQTT_Broker_URL = "";
     var MQTT_Client_ID = "";
@@ -58,8 +56,6 @@ function Start(){
 	
 		
 		// Send MQTT Message 
-
-/*
     setInterval(function() {
   //Your code
   //Send data
@@ -99,7 +95,6 @@ function Start(){
        }
 }, 100); //Every 1000ms = 1sec
 
-*/
 
 	  //console.log(MQTT_Subscribe_Topic);
 	//document.getElementById("winer1").innerHTML = MQTT_Subscribe_Topic;
@@ -114,6 +109,7 @@ function Stop(){
 	button_clicked = false;
 	
 }
+
 
     // Subscribe to MQTT Topic
     function mqtt_Subscribe_to_Topic(){
@@ -162,7 +158,9 @@ function showresults()
 		
   	
 }	
-  	
+    
+	
+	
 
     // called when the client connects
     function onConnect() {
@@ -250,4 +248,3 @@ function showresults()
     function changeConnectionStatusImage(image) {
 		document.getElementById("connectionImage").src = image;
 	}
-
