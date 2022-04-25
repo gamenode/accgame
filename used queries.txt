@@ -1,0 +1,13 @@
+//First Initialize local database:
+//From Start game button in http://127.0.0.1:1880/ui
+
+msg.topic= "DROP TABLE IF EXISTS clients;";
+return msg;
+
+msg.topic = "CREATE TABLE IF NOT EXISTS clients (client_id VARCHAR(45) PRIMARY KEY, client_points int);";
+return msg;
+
+//Each click on stop button store the points for the current client
+//Add new id and points or updating the id if exist by increasing its points
+msg.topic = 'INSERT INTO `game`.`clients`(`client_id`,`client_points`)VALUES(\"'+msg.payload.client_id+'\",'+msg.payload.client_points+') ON DUPLICATE KEY UPDATE `client_points` = `client_points`+\"'+msg.payload.client_points+'\"';
+return msg;
