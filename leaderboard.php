@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=2" />
     </head>
     
-    <body onload = "MQTTconnect();">
+    <body>
         <div class="outer-main">
             <table id="score_table">
                 <tr>

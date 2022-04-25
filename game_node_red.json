@@ -1,0 +1,678 @@
+[
+    {
+        "id": "8dbad8504068cd9f",
+        "type": "tab",
+        "label": "game",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7d26250c030727c3",
+        "type": "MySQLdatabase",
+        "name": "game",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "game",
+        "tz": "",
+        "charset": "utf8mb4"
+    },
+    {
+        "id": "152e1e6d744154b7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "100",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "07f33f61fa494e79",
+        "type": "ui_group",
+        "name": "game",
+        "tab": "d5a2f3f13afaea76",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d5a2f3f13afaea76",
+        "type": "ui_tab",
+        "name": "IOT Game",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3a3196faf3073ee0",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "e00748e20d941df6",
+        "type": "mysql",
+        "z": "8dbad8504068cd9f",
+        "mydb": "7d26250c030727c3",
+        "name": "",
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "9b047038d24e619e"
+            ]
+        ]
+    },
+    {
+        "id": "bd545e933ba7524d",
+        "type": "debug",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9b047038d24e619e",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "msg.payload = \n{\n    // Winer1: msg.payload[0].idClients,\n    // Result1: msg.payload[0].result,\n    // Winer2: msg.payload[1].idClients,\n    // Result2: msg.payload[1].result,\n    // Winer3: msg.payload[2].idClients,\n    // Result3: msg.payload[2].result\n    \n    Winer1: msg.payload[0].client_id,\n    Result1: msg.payload[0].result,\n    Winer2: msg.payload[1].client_id,\n    Result2: msg.payload[1].result,\n    Winer3: msg.payload[2].client_id,\n    Result3: msg.payload[2].result\n    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 440,
+        "wires": [
+            [
+                "bd545e933ba7524d",
+                "024caffa98b36914",
+                "746f8b5389de3c97",
+                "56c2a0c077026cd4",
+                "40b42c984eb56eb2"
+            ]
+        ]
+    },
+    {
+        "id": "7f5a2864ace24c54",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "msg.topic = 'INSERT INTO `game`.`clients`(`client_id`,`client_points`)VALUES(\\\"'+msg.payload.client_id+'\\\",'+msg.payload.client_points+') ON DUPLICATE KEY UPDATE `client_points` = `client_points`+\\\"'+msg.payload.client_points+'\\\"';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 760,
+        "wires": [
+            [
+                "3e02371dc7299bc9"
+            ]
+        ]
+    },
+    {
+        "id": "80d25b9f08a1efbd",
+        "type": "mqtt in",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "topic": "Game",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "152e1e6d744154b7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 800,
+        "wires": [
+            [
+                "85dda29b48d3799f"
+            ]
+        ]
+    },
+    {
+        "id": "3e02371dc7299bc9",
+        "type": "mysql",
+        "z": "8dbad8504068cd9f",
+        "mydb": "7d26250c030727c3",
+        "name": "",
+        "x": 480,
+        "y": 820,
+        "wires": [
+            [
+                "fb167da34ef51851"
+            ]
+        ]
+    },
+    {
+        "id": "fb167da34ef51851",
+        "type": "debug",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7d2847a880c9bf6c",
+        "type": "comment",
+        "z": "8dbad8504068cd9f",
+        "name": "who wins?",
+        "info": "",
+        "x": 80,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "60a448b8a3b63735",
+        "type": "comment",
+        "z": "8dbad8504068cd9f",
+        "name": "inject data to database",
+        "info": "",
+        "x": 160,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "117ef85eae1fb78c",
+        "type": "inject",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE IF EXISTS clients;",
+        "payloadType": "date",
+        "x": 320,
+        "y": 60,
+        "wires": [
+            [
+                "1d541c18ce2cca89"
+            ]
+        ]
+    },
+    {
+        "id": "1d541c18ce2cca89",
+        "type": "mysql",
+        "z": "8dbad8504068cd9f",
+        "mydb": "7d26250c030727c3",
+        "name": "",
+        "x": 480,
+        "y": 80,
+        "wires": [
+            [
+                "b332d8497016e24e"
+            ]
+        ]
+    },
+    {
+        "id": "d396969e06515bca",
+        "type": "mysql",
+        "z": "8dbad8504068cd9f",
+        "mydb": "7d26250c030727c3",
+        "name": "",
+        "x": 780,
+        "y": 60,
+        "wires": [
+            [
+                "8da9f75af22a8386"
+            ]
+        ]
+    },
+    {
+        "id": "8da9f75af22a8386",
+        "type": "debug",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "88e8d48a3071a98d",
+        "type": "comment",
+        "z": "8dbad8504068cd9f",
+        "name": "Start game and xcreate table with attibutes",
+        "info": "",
+        "x": 200,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "85dda29b48d3799f",
+        "type": "json",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 230,
+        "y": 820,
+        "wires": [
+            [
+                "7f5a2864ace24c54"
+            ]
+        ]
+    },
+    {
+        "id": "024caffa98b36914",
+        "type": "ui_text",
+        "z": "8dbad8504068cd9f",
+        "group": "07f33f61fa494e79",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Winner 1",
+        "format": "{{msg.payload.Winer1}}",
+        "layout": "row-spread",
+        "x": 800,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5761f95a63e17d98",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "if(msg.payload == \"showresult\")\n{\n//   msg.topic = \"SELECT idClients,         SQRT(SUM(x*x+y*y+z*z)) AS result FROM game.clients GROUP BY idClients ORDER BY result DESC;\"\n  msg.topic = 'SELECT client_id, MIN(difference) AS result FROM game.clients GROUP BY client_id ORDER BY result ;';\n\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 460,
+        "wires": [
+            [
+                "e00748e20d941df6"
+            ]
+        ]
+    },
+    {
+        "id": "42e46a060b2b89f0",
+        "type": "ui_button",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "group": "07f33f61fa494e79",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Show results",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 380,
+        "wires": [
+            [
+                "d29d96fc9b121341",
+                "73e6bf8f45a8d026"
+            ]
+        ]
+    },
+    {
+        "id": "746f8b5389de3c97",
+        "type": "ui_text",
+        "z": "8dbad8504068cd9f",
+        "group": "07f33f61fa494e79",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Winner 2",
+        "format": "{{msg.payload.Winer2}}",
+        "layout": "row-spread",
+        "x": 800,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "56c2a0c077026cd4",
+        "type": "mqtt out",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "topic": "Result",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "152e1e6d744154b7",
+        "x": 810,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "89eb75934a317b41",
+        "type": "mqtt in",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "topic": "showresult",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "152e1e6d744154b7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 460,
+        "wires": [
+            [
+                "5761f95a63e17d98"
+            ]
+        ]
+    },
+    {
+        "id": "d29d96fc9b121341",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "// msg.topic = \"SELECT idClients,         SUM(x*x+y*y+z*z) AS result FROM game.clients GROUP BY idClients ORDER BY result DESC;\"\nmsg.topic = \"SELECT client_id, MIN(difference) AS result FROM game.clients GROUP BY client_id ORDER BY result WHERE TABLE_SCHEMA = 'game' AND TABLE_NAME = 'clients' AND COLUMN_NAME = 'difference';\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 400,
+        "wires": [
+            [
+                "e00748e20d941df6"
+            ]
+        ]
+    },
+    {
+        "id": "b332d8497016e24e",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "msg.topic = \"CREATE TABLE IF NOT EXISTS clients (client_id VARCHAR(45) PRIMARY KEY, client_points int);\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "d396969e06515bca"
+            ]
+        ]
+    },
+    {
+        "id": "40b42c984eb56eb2",
+        "type": "ui_text",
+        "z": "8dbad8504068cd9f",
+        "group": "07f33f61fa494e79",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Winner 3",
+        "format": "{{msg.payload.Winer3}}",
+        "layout": "row-spread",
+        "x": 800,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "64fe9d7ad1671a7a",
+        "type": "ui_button",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "group": "07f33f61fa494e79",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start Game",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "8dbcfb4ab9cd3a1e",
+                "4e0a3a99ee59113f"
+            ]
+        ]
+    },
+    {
+        "id": "8dbcfb4ab9cd3a1e",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "msg.topic= \"DROP TABLE IF EXISTS clients;\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "1d541c18ce2cca89"
+            ]
+        ]
+    },
+    {
+        "id": "73e5ec7e9b38a7a0",
+        "type": "ui_template",
+        "z": "8dbad8504068cd9f",
+        "group": "07f33f61fa494e79",
+        "name": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 520,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "73e6bf8f45a8d026",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "msg.payload=\"\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "73e5ec7e9b38a7a0"
+            ]
+        ]
+    },
+    {
+        "id": "4e0a3a99ee59113f",
+        "type": "function",
+        "z": "8dbad8504068cd9f",
+        "name": "",
+        "func": "msg.payload=\"New game started!\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "73e5ec7e9b38a7a0"
+            ]
+        ]
+    }
+]
