@@ -1,0 +1,7 @@
+mysql://b0410c0e5044f9:1b7079f4@eu-cdbr-west-02.cleardb.net/heroku_6ae6c626c9a22c7?reconnect=true
+
+username: b0410c0e5044f9
+Password: 1b7079f4
+Host: eu-cdbr-west-02.cleardb.net
+
+DB name: heroku_6ae6c626c9a22c7

@@ -15,13 +15,13 @@
                 </tr>
                 
                 <?php
-                    $conn = mysqli_connect("127.0.0.1", "root", "Nagy@1994", "game");
+                    $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net", "b0410c0e5044f9", "1b7079f4", "heroku_6ae6c626c9a22c7");
                     if($conn-> connect_error) {
                         die("Connection failed:". $conn-> connect_error);
                     }
 
 //                    $sql = "SELECT client_id, client_points from clients";
-                    $sql = "SELECT client_id, MAX(client_points) AS result FROM game.clients GROUP BY client_id ORDER BY result DESC";
+                    $sql = "SELECT client_id, MAX(client_points) AS result FROM heroku_6ae6c626c9a22c7.clients GROUP BY client_id ORDER BY result DESC";
                     $result = $conn-> query($sql);
 
                     if($result-> num_rows > 0) {
